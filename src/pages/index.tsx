@@ -3,7 +3,6 @@ import styles from '@/styles/Home.module.scss';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, selectValue } from 'slices/counterSlice';
-import type { RootState } from 'store';
 
 export default function Home() {
   const count = useSelector(selectValue);
