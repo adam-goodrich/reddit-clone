@@ -20,6 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <h1>Hello World!</h1>
         <button onClick={() => setIsEven(!isEven)}>
           {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
         </button>
