@@ -1,8 +1,14 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment, selectValue } from 'slices/counterSlice';
+import type { RootState } from 'store';
 
 export default function Home() {
+  const count = useSelector(selectValue);
+  const dispatch = useDispatch();
+
   const [isEven, setIsEven] = useState(true);
 
   const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -21,6 +27,15 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hello World!</h1>
+        <p className={styles.countParagraph}>The value of count is {count}</p>
+        <div className={styles.buttonContainer}>
+          <button onClick={() => dispatch(increment())} className={styles.button}>
+            Increment
+          </button>
+          <button onClick={() => dispatch(decrement())} className={styles.button}>
+            Decrement
+          </button>
+        </div>
         <button onClick={() => setIsEven(!isEven)}>
           {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
         </button>
