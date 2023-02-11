@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './slices/counterSlice';
+import isEvenReducer from './slices/isEvenSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    isEven: isEvenReducer,
   },
 });
 

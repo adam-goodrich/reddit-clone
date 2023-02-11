@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, selectValue } from 'slices/counterSlice';
+import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
 
 export default function Home() {
   const count = useSelector(selectValue);
+  const isEven = useSelector(selectIsEven);
   const dispatch = useDispatch();
-
-  const [isEven, setIsEven] = useState(true);
 
   const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -35,7 +34,7 @@ export default function Home() {
             Decrement
           </button>
         </div>
-        <button onClick={() => setIsEven(!isEven)}>
+        <button onClick={() => dispatch(setIsEven())}>
           {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
         </button>
         <h2>{isEven ? 'Even Numbers' : 'Odd Numbers'}</h2>
