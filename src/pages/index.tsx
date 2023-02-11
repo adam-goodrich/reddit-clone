@@ -1,10 +1,15 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
+import { useState } from 'react';
 
 export default function Home() {
+  const [isEven, setIsEven] = useState(true);
+
   const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const evenNums = numArray.filter((num) => num % 2 === 0);
+
+  const oddNums = numArray.filter((num) => num % 2 !== 0);
 
   return (
     <>
@@ -15,12 +20,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hello World</h1>
-        <h2>Even Numbers</h2>
+        <button onClick={() => setIsEven(!isEven)}>
+          {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
+        </button>
+        <h2>{isEven ? 'Even Numbers' : 'Odd Numbers'}</h2>
         <ul>
-          {evenNums.map((num) => (
-            <li key={num}>{num}</li>
-          ))}
+          {isEven
+            ? evenNums.map((num) => <li key={num}>{num}</li>)
+            : oddNums.map((num) => <li key={num}>{num}</li>)}
         </ul>
       </main>
     </>
