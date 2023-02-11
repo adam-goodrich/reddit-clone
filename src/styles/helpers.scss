@@ -1,0 +1,67 @@
+// media queries
+
+@mixin max-height($height) {
+  @media only screen and (max-height: $height) {
+    @content;
+  }
+}
+
+@mixin short-screen {
+  @media only screen and (max-height: 700px) {
+    @content;
+  }
+}
+
+@mixin breakpoint($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media only screen and (max-width: 1420px) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media only screen and (max-width: 374px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 790px) {
+    @content;
+  }
+}
+
+@mixin notMobile {
+  @media not screen and (max-width: 790px) {
+    @content;
+  }
+}
+
+@mixin notSmallMobile {
+  @media only screen and (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin tiny {
+  @media only screen and (max-width: 450px) {
+    @content;
+  }
+}
