@@ -2,6 +2,10 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 
 export default function Home() {
+  const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const evenNums = numArray.filter((num) => num % 2 === 0);
+
   return (
     <>
       <Head>
@@ -12,6 +16,12 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hello World</h1>
+        <h2>Even Numbers</h2>
+        <ul>
+          {evenNums.map((num) => (
+            <li key={num}>{num}</li>
+          ))}
+        </ul>
       </main>
     </>
   );
