@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 
 export interface isEvenState {
-  isEven: boolean;
+  isEvenBool: boolean;
 }
 
 const initialState: isEvenState = {
-  isEven: true,
+  isEvenBool: true,
 };
 
 export const isEvenSlice = createSlice({
@@ -14,7 +14,7 @@ export const isEvenSlice = createSlice({
   initialState,
   reducers: {
     setIsEven: (state) => {
-      state.isEven = !state.isEven;
+      state.isEvenBool = !state.isEvenBool;
     },
   },
 });
@@ -22,6 +22,6 @@ export const isEvenSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { setIsEven } = isEvenSlice.actions;
 
-export const selectIsEven = (state: RootState) => state.isEven.isEven;
+export const selectIsEven = (state: RootState) => state.isEven.isEvenBool;
 
 export default isEvenSlice.reducer;
