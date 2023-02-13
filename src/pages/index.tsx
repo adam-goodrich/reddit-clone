@@ -3,8 +3,22 @@ import styles from '@/styles/Home.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, selectValue } from 'slices/counterSlice';
 import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
+import { connectToDatabase } from 'util/mongodb';
+import { useState } from 'react';
 
-export default function Home() {
+interface User {
+  username: string;
+  email: string;
+  password: string;
+  _id: string;
+}
+
+interface Props {
+  users: User[];
+}
+
+const Home: React.FC<Props> = ({ users }) => {
+  const [user, setUser] = useState<User>(users[0]);
   const count = useSelector(selectValue);
   const isEven = useSelector(selectIsEven);
   const dispatch = useDispatch();
@@ -15,6 +29,18 @@ export default function Home() {
 
   const oddNums = numArray.filter((num) => num % 2 !== 0);
 
+  const handleChangeUser = () => {
+    if (user === users[0]) {
+      setUser(users[1]);
+    }
+    if (user === users[1]) {
+      setUser(users[2]);
+    }
+    if (user === users[2]) {
+      setUser(users[0]);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -24,7 +50,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hello World! jira setup</h1>
+        <h1>Hello World! mongodb setup</h1>
+        <h2>Username: {user.username}</h2>
+        <h2>Email: {user.email}</h2>
+        <h2>Password: {user.password}</h2>
+        <h2>Id: {user._id}</h2>
+        <button className={styles.button} onClick={handleChangeUser}>
+          Change User
+        </button>
         <p className={styles.countParagraph}>The value of count is {count}</p>
         <div className={styles.buttonContainer}>
           <button onClick={() => dispatch(increment())} className={styles.button}>
@@ -46,4 +79,20 @@ export default function Home() {
       </main>
     </>
   );
+};
+
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+
+  const data = await db.collection('users').find({}).toArray();
+
+  const users = JSON.parse(JSON.stringify(data));
+
+  return {
+    props: {
+      users: users,
+    },
+  };
 }
+
+export default Home;
