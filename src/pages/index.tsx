@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, selectValue } from 'slices/counterSlice';
 import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
 import { connectToDatabase } from 'util/mongodb';
+import { useState } from 'react';
 
 interface User {
   username: string;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ users }) => {
+  const [user, setUser] = useState<User>(users[0]);
   const count = useSelector(selectValue);
   const isEven = useSelector(selectIsEven);
   const dispatch = useDispatch();
@@ -26,6 +28,18 @@ const Home: React.FC<Props> = ({ users }) => {
   const evenNums = numArray.filter((num) => num % 2 === 0);
 
   const oddNums = numArray.filter((num) => num % 2 !== 0);
+
+  const handleChangeUser = () => {
+    if (user === users[0]) {
+      setUser(users[1]);
+    }
+    if (user === users[1]) {
+      setUser(users[2]);
+    }
+    if (user === users[2]) {
+      setUser(users[0]);
+    }
+  };
 
   return (
     <>
@@ -37,10 +51,11 @@ const Home: React.FC<Props> = ({ users }) => {
       </Head>
       <main className={styles.main}>
         <h1>Hello World! mongodb setup</h1>
-        <h2>Username: {users[0].username}</h2>
-        <h2>Email: {users[0].email}</h2>
-        <h2>Password: {users[0].password}</h2>
-        <h2>Id: {users[0]._id}</h2>
+        <h2>Username: {user.username}</h2>
+        <h2>Email: {user.email}</h2>
+        <h2>Password: {user.password}</h2>
+        <h2>Id: {user._id}</h2>
+        <button onClick={handleChangeUser}>Change User</button>
         <p className={styles.countParagraph}>The value of count is {count}</p>
         <div className={styles.buttonContainer}>
           <button onClick={() => dispatch(increment())} className={styles.button}>
@@ -70,8 +85,6 @@ export async function getServerSideProps() {
   const data = await db.collection('users').find({}).toArray();
 
   const users = JSON.parse(JSON.stringify(data));
-
-  console.log(users);
 
   return {
     props: {
