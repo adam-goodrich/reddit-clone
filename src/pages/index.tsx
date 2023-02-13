@@ -84,9 +84,9 @@ const Home: React.FC<Props> = ({ users }) => {
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
 
-  const data = await db.collection('users').find({}).toArray();
+  const userData = await db.collection('users').find({}).toArray();
 
-  const users = JSON.parse(JSON.stringify(data));
+  const users = JSON.parse(JSON.stringify(userData));
 
   return {
     props: {
