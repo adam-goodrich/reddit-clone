@@ -3,8 +3,20 @@ import styles from '@/styles/Home.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, selectValue } from 'slices/counterSlice';
 import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
+import { connectToDatabase } from 'util/mongodb';
 
-export default function Home() {
+interface User {
+  username: string;
+  email: string;
+  password: string;
+  _id: string;
+}
+
+interface Props {
+  users: User[];
+}
+
+const Home: React.FC<Props> = ({ users }) => {
   const count = useSelector(selectValue);
   const isEven = useSelector(selectIsEven);
   const dispatch = useDispatch();
@@ -24,7 +36,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hello World! jira setup</h1>
+        <h1>Hello World! mongodb setup</h1>
+        <h2>Username: {users[0].username}</h2>
+        <h2>Email: {users[0].email}</h2>
+        <h2>Password: {users[0].password}</h2>
+        <h2>Id: {users[0]._id}</h2>
         <p className={styles.countParagraph}>The value of count is {count}</p>
         <div className={styles.buttonContainer}>
           <button onClick={() => dispatch(increment())} className={styles.button}>
@@ -46,4 +62,22 @@ export default function Home() {
       </main>
     </>
   );
+};
+
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+
+  const data = await db.collection('users').find({}).toArray();
+
+  const users = JSON.parse(JSON.stringify(data));
+
+  console.log(users);
+
+  return {
+    props: {
+      users: users,
+    },
+  };
 }
+
+export default Home;
