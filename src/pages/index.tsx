@@ -55,7 +55,9 @@ const Home: React.FC<Props> = ({ users }) => {
         <h2>Email: {user.email}</h2>
         <h2>Password: {user.password}</h2>
         <h2>Id: {user._id}</h2>
-        <button onClick={handleChangeUser}>Change User</button>
+        <button className={styles.button} onClick={handleChangeUser}>
+          Change User
+        </button>
         <p className={styles.countParagraph}>The value of count is {count}</p>
         <div className={styles.buttonContainer}>
           <button onClick={() => dispatch(increment())} className={styles.button}>
