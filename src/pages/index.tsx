@@ -50,7 +50,7 @@ const Home: React.FC<Props> = ({ users }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hello World! Jira testing</h1>
+        <h1>Hello World! Jira testing 2</h1>
         <h2>Username: {user.username}</h2>
         <h2>Email: {user.email}</h2>
         <h2>Password: {user.password}</h2>
