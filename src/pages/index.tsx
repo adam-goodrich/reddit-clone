@@ -67,11 +67,11 @@ const Home: React.FC<Props> = ({ users }) => {
             Decrement
           </button>
         </div>
-        <button onClick={() => dispatch(setIsEven())}>
+        <button onClick={() => dispatch(setIsEven())} className={styles.button}>
           {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
         </button>
         <h2>{isEven ? 'Even Numbers' : 'Odd Numbers'}</h2>
-        <ul>
+        <ul className={styles.list}>
           {isEven
             ? evenNums.map((num) => <li key={num}>{num}</li>)
             : oddNums.map((num) => <li key={num}>{num}</li>)}
