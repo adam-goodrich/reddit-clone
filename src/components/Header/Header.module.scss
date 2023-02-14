@@ -1,0 +1,50 @@
+@import '@/styles/helpers.scss';
+
+button{
+    border-style: none;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(37, 35, 35);
+    color: white;
+    width: 100%;
+    height: 50px;
+    padding: 6px 25px 6px 25px;
+    align-items: center;
+}
+.header__logo{
+    display: flex;
+    align-items: center;
+}
+button.logo{
+    width: 100px;
+    height:30px;
+    border-radius: 15px;
+    background-color: orangered;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.search_bar{
+    border-radius: 30px;
+    width: 650px;
+    background-color: rgb(64, 64, 64);
+    border-style: none;
+    font-size: 20px;
+    padding-left:40px ;
+    height: 100%;
+    color: rgb(216, 203, 203);
+}
+.header__right>button{
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;   
+}
+button.profile{
+    color: white;
+    background-color: black;
+    width: 35px;
+    border-radius: 30px;
+}
