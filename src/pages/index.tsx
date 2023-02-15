@@ -5,6 +5,7 @@ import { decrement, increment, selectValue } from 'slices/counterSlice';
 import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
 import { connectToDatabase } from 'util/mongodb';
 import { useState } from 'react';
+import Post from '@/components/Post';
 
 interface User {
   username: string;
@@ -50,7 +51,7 @@ const Home: React.FC<Props> = ({ users }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hello World! mongodb setup</h1>
+        {/* <h1>Hello World! mongodb setup</h1>
         <h2>Username: {user.username}</h2>
         <h2>Email: {user.email}</h2>
         <h2>Password: {user.password}</h2>
@@ -75,7 +76,8 @@ const Home: React.FC<Props> = ({ users }) => {
           {isEven
             ? evenNums.map((num) => <li key={num}>{num}</li>)
             : oddNums.map((num) => <li key={num}>{num}</li>)}
-        </ul>
+        </ul> */}
+        <Post />
       </main>
     </>
   );

@@ -1,8 +1,10 @@
+import styles from '@/styles/Post.module.scss';
+
 function Post() {
   return (
-    <article className="post">
+    <article className={styles.post}>
       <small>
-        r/Test <span className="post__by-line">Posted by u/Test 10 minutes ago</span>
+        r/Test <span className={styles.authored}>Posted by u/Test 10 minutes ago</span>
       </small>
       <h3>Default Post</h3>
       <p>
@@ -14,10 +16,10 @@ function Post() {
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
         PageMaker including versions of Lorem Ipsum.
       </p>
-      <div className="post__sidebar">
-        <button>Upvote</button>
+      <div className={styles.sidebar}>
+        <button className={styles.upvote}>Upvote</button>
         <p>0</p>
-        <button>Downvote</button>
+        <button className={styles.downvote}>Downvote</button>
       </div>
     </article>
   );

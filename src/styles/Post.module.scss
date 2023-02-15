@@ -1,0 +1,74 @@
+@import '@/styles/helpers.scss';
+
+.post {
+  max-width: 600px;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #1a1a1b;
+
+  h3 {
+    margin-top: 0.75rem;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+}
+
+.authored {
+  color: #7c7e7f;
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  align-items: center;
+  margin-top: 2rem;
+  p {
+    margin-top: 0;
+  }
+}
+
+.upvote,
+.downvote {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.upvote {
+  background-image: url('../icons/upvote.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.downvote {
+  background-image: url('../icons/downvote.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@include notMobile {
+  .post {
+    position: relative;
+    padding-left: calc(40px + 1rem);
+  }
+
+  .sidebar {
+    background-color: #161617;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    flex-direction: column;
+    gap: 0.5rem 0;
+    width: 40px;
+    padding: 2rem 0;
+  }
+}
