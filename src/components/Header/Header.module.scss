@@ -28,18 +28,42 @@
 .logo:hover{
     cursor: pointer;
 }
+.menu_bar{
+    background-color: black;
+    border-radius: 15px;
+    height: 30px;
+    width: 150px;
+    min-width: 120px;
+    color: rgb(216, 203, 203);
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+    padding: 5px;
+    display: none;
+}
+.menu_bar:hover{
+    border: 1px solid rgb(216, 203, 203);
+    cursor: pointer;
+}
 .search_bar{
     border-radius: 30px;
-    width: 650px;
+    max-width: 650px;
+    width: fill;
+    min-width: 0px; 
     background-color: rgb(64, 64, 64);
     border-style: none;
     font-size: 20px;
     padding-left:40px ;
     height: 100%;
     color: rgb(216, 203, 203);
+    margin: 0 10px 0 10px;
 }
 .search_bar:hover{
     border: 1px solid rgb(233, 233, 233);
+}
+.header__right{
+    display: flex;
+    flex-shrink: 0;    
 }
 .header__button{
     border-radius: 15px;
@@ -63,4 +87,30 @@
 .profile:hover{
     cursor: pointer;
     border: 1px solid gray;
+}
+
+@include medium-screen{
+    .menu_bar{
+        display: flex;
+    }
+}
+@include mobile{
+    .header__right>:first-child{
+        display: none;
+    }
+    .menu_popular{
+        display: none;
+    }
+    .menu_bar{
+        min-width: 20px;
+        width: 30px;
+        border-radius: 15px;
+        justify-content: center;
+    }
+    .logo_pic{
+        display: none;
+    }
+    .logo{
+        width: 25px;
+    }
 }
