@@ -10,6 +10,7 @@
     height: 50px;
     padding: 6px 25px 6px 25px;
     align-items: center;
+    font-family: sans-serif;
 }
 .header__logobox{
     display: flex;
@@ -24,6 +25,7 @@
     font-size: 15px;
     font-weight: bold;
     border-style: none;
+    box-shadow: 2px 2px rgb(100, 27, 0);
 }
 .logo:hover{
     cursor: pointer;
@@ -55,8 +57,9 @@
     font-size: 20px;
     padding-left:40px ;
     height: 100%;
-    color: rgb(216, 203, 203);
+    color: rgb(226, 213, 213);
     margin: 0 10px 0 10px;
+    box-shadow: inset 2px 2px 2px black;
 }
 .search_bar:hover{
     border: 1px solid rgb(233, 233, 233);
@@ -72,10 +75,13 @@
     margin-right: 10px;   
     border-style: none;
     background-color: rgb(226, 226, 226);
+    box-shadow: 1px 1px rgb(144, 116, 116);
+    color: rgb(44, 44, 44);
 }
 .header__button:hover{
     cursor: pointer;
     background-color: rgb(200, 200, 200);
+    
 }
 .profile{
     color: white;
