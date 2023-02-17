@@ -1,0 +1,8 @@
+@import '@/styles/helpers.scss';
+
+.desktop-only {
+  display: none;
+  @include notMobile {
+    display: initial;
+  }
+}
