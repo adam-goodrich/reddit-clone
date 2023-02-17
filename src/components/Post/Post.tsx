@@ -1,4 +1,4 @@
-import styles from '@/styles/Post.module.scss';
+import styles from './Post.module.scss';
 
 function Post() {
   return (
@@ -16,10 +16,18 @@ function Post() {
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
         PageMaker including versions of Lorem Ipsum.
       </p>
-      <div className={styles.sidebar}>
-        <button className={styles.upvote}>Upvote</button>
-        <p>0</p>
-        <button className={styles.downvote}>Downvote</button>
+      <div className={styles.info}>
+        <div className={styles.sidebar}>
+          <button className={styles.upvote}>Upvote</button>
+          <p>0</p>
+          <button className={styles.downvote}>Downvote</button>
+        </div>
+        <div className={styles.comments}>
+          <button aria-hidden="true">Comments</button>
+          <p>
+            0 <span className="desktop-only">Comments</span>
+          </p>
+        </div>
       </div>
     </article>
   );

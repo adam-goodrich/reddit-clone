@@ -5,7 +5,7 @@ import { decrement, increment, selectValue } from 'slices/counterSlice';
 import { selectIsEven, setIsEven } from 'slices/isEvenSlice';
 import { connectToDatabase } from 'util/mongodb';
 import { useState } from 'react';
-import Post from '@/components/Post';
+import Post from '@/components/Post/Post';
 
 interface User {
   username: string;
