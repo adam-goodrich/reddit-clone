@@ -69,35 +69,35 @@
     .header__right{
         display: flex;
         flex-shrink: 0;    
-    }
-    .header__button{
-        border-radius: 15px;
-        width: 100px;
-        height: 30px;
-        margin-right: 10px;   
-        border-style: none;
-        background-color: rgb(226, 226, 226);
-        box-shadow: 1px 1px rgb(144, 116, 116);
-        color: rgb(44, 44, 44);
     
-        &:hover{
-            cursor: pointer;
-            background-color: rgb(200, 200, 200);
+        .header__button{
+            border-radius: 15px;
+            width: 100px;
+            height: 30px;
+            margin-right: 10px;   
+            border-style: none;
+            background-color: rgb(226, 226, 226);
+            box-shadow: 1px 1px rgb(144, 116, 116);
+            color: rgb(44, 44, 44);
+            
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(200, 200, 200);
+            }
         }
-    }
-    .profile{
-        color: white;
-        background-color: black;
-        width: 35px;
-        border-radius: 30px;
-        border-style: none;
-        
-        &:hover{
-            cursor: pointer;
-            border: 1px solid gray;
-        }
-    }
+        .profile{
+            color: white;
+            background-color: black;
+            width: 35px;
+            border-radius: 30px;
+            border-style: none;
 
+            &:hover{
+                cursor: pointer;
+                border: 1px solid gray;
+            }
+        }
+    }
     @include medium-screen{
         .menu_bar{
             display: flex;
