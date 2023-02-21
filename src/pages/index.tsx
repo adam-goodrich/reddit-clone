@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '@/components/Header/Header';
+import Post from '@/components/Post/Post';
 
 const Home = () => {
   return (
@@ -11,7 +12,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main></main>
+      <main>
+        <Post />
+      </main>
     </>
   );
 };
