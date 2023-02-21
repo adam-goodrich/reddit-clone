@@ -12,7 +12,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main></main>
+      <main>
+        <Post />
+      </main>
     </>
   );
 };
