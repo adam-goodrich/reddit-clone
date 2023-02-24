@@ -25,6 +25,8 @@
     font-weight: bold;
     border-style: none;
     box-shadow: 2px 2px rgb(100, 27, 0);
+    padding: 4px 0 0 17px;
+    text-decoration: none;
 
     &:hover {
       cursor: pointer;
@@ -54,7 +56,7 @@
     width: 100%;
     min-width: 0px;
     background-color: rgb(64, 64, 64);
-    border-style: none;
+    border: 1px solid transparent;
     font-size: 20px;
     padding-left: 40px;
     height: 100%;
@@ -121,6 +123,7 @@
     }
     .logo {
       width: 25px;
+      padding: 3px 0 0 8px;
     }
   }
 }
