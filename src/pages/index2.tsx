@@ -70,49 +70,51 @@ const Home: React.FC<Props> = ({ users }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header />
-        <h1>Hello World! Jira testing 2</h1>
-        <Button variant="contained" onClick={handleOpen}>
-          Open modal
-        </Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <h2>Username: {user.username}</h2>
-            <h2>Email: {user.email}</h2>
-            <h2>Password: {user.password}</h2>
-            <h2>Id: {user._id}</h2>
-            <Button variant="contained" onClick={handleChangeUser}>
-              Change User
-            </Button>
-            <br />
-            <Button variant="contained" onClick={handleClose} style={{ marginTop: '20px' }}>
-              Close
-            </Button>
-          </Box>
-        </Modal>
-        <p className={styles.countParagraph}>The value of count is {count}</p>
-        <div className={styles.buttonContainer}>
-          <button onClick={() => dispatch(increment())} className={styles.button}>
-            Increment
+        <div className={styles.container}>
+          <Header />
+          <h1>Hello World! Jira testing 2</h1>
+          <Button variant="contained" onClick={handleOpen}>
+            Open modal
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <h2>Username: {user.username}</h2>
+              <h2>Email: {user.email}</h2>
+              <h2>Password: {user.password}</h2>
+              <h2>Id: {user._id}</h2>
+              <Button variant="contained" onClick={handleChangeUser}>
+                Change User
+              </Button>
+              <br />
+              <Button variant="contained" onClick={handleClose} style={{ marginTop: '20px' }}>
+                Close
+              </Button>
+            </Box>
+          </Modal>
+          <p className={styles.countParagraph}>The value of count is {count}</p>
+          <div className={styles.buttonContainer}>
+            <button onClick={() => dispatch(increment())} className={styles.button}>
+              Increment
+            </button>
+            <button onClick={() => dispatch(decrement())} className={styles.button}>
+              Decrement
+            </button>
+          </div>
+          <button onClick={() => dispatch(setIsEven())} className={styles.button}>
+            {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
           </button>
-          <button onClick={() => dispatch(decrement())} className={styles.button}>
-            Decrement
-          </button>
+          <h2>{isEven ? 'Even Numbers' : 'Odd Numbers'}</h2>
+          <ul className={styles.list}>
+            {isEven
+              ? evenNums.map((num) => <li key={num}>{num}</li>)
+              : oddNums.map((num) => <li key={num}>{num}</li>)}
+          </ul>
         </div>
-        <button onClick={() => dispatch(setIsEven())} className={styles.button}>
-          {isEven ? 'Change to odd numbers' : 'Change to even numbers'}
-        </button>
-        <h2>{isEven ? 'Even Numbers' : 'Odd Numbers'}</h2>
-        <ul className={styles.list}>
-          {isEven
-            ? evenNums.map((num) => <li key={num}>{num}</li>)
-            : oddNums.map((num) => <li key={num}>{num}</li>)}
-        </ul>
       </main>
     </>
   );
