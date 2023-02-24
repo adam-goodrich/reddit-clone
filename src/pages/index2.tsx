@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import Header from '@/components/Header/Header';
 
 interface User {
   username: string;
@@ -69,6 +70,7 @@ const Home: React.FC<Props> = ({ users }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <Header />
         <h1>Hello World! Jira testing 2</h1>
         <Button variant="contained" onClick={handleOpen}>
           Open modal
